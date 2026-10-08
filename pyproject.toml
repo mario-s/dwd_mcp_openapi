@@ -1,0 +1,22 @@
+[project]
+name = "dwd-mcp-server"
+version = "0.1.0"
+description = "MCP server for Environmental Data Retrieval (EDR) API of DWD"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=2.3.0",
+    "pydantic>=2.13.5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-httpx>=0.36.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
