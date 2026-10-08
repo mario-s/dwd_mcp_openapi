@@ -23,7 +23,15 @@ class DwdEdrClient:
         query_params = {k: v for k, v in (params or {}).items() if v is not None}
         async with httpx.AsyncClient(timeout=self.timeout) as client:
             response = await client.get(url, params=query_params, headers=headers)
-            response.raise_for_status()
+            try:
+                response.raise_for_status()
+            except httpx.HTTPStatusError as exc:
+                body = response.text.strip()
+                raise httpx.HTTPStatusError(
+                    f"{exc.args[0]}\nServer response: {body}",
+                    request=exc.request,
+                    response=exc.response,
+                ) from None
             return response.json()
 
     async def get_landing_page(self) -> dict[str, Any]:
