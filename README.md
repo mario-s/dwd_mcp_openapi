@@ -13,6 +13,7 @@ uv run python main.py
 
 ## Connecting to a client
 ### Claude
+Use the [hyper-mcp-remote](https://github.com/hyper-mcp-rs/hyper-mcp-remote) bridge
 ```
   "mcpServers": {
     "dwd-weather-server": {
