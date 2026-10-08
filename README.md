@@ -26,3 +26,5 @@ Use the [hyper-mcp-remote](https://github.com/hyper-mcp-rs/hyper-mcp-remote) bri
     }
   }
 ```
+## Skills
+This repository contains a sample skill for agents to convert a GPX file into a KML File with enhanced weather data for specific points.
